@@ -1,6 +1,10 @@
 package models;
 
 import static com.google.common.base.MoreObjects.toStringHelper;
+import com.google.common.base.Objects;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class User {
 	public String firstName;
@@ -8,9 +12,8 @@ public class User {
 	public String email;
 	public String password;
 	
-	public User()
-	{
-	}
+	private Map<String, User> users = new HashMap<String, User>();
+	
 	
 	public User(String firstName, String lastName, String email, String password)
 	{
@@ -20,6 +23,8 @@ public class User {
 		this.password = password;
 		
 	}
+	
+	@Override
 	public String toString()
 	{
 		 return toStringHelper(this).addValue(firstName)
@@ -27,5 +32,11 @@ public class User {
                  .addValue(password)
                  .addValue(email)                               
                  .toString();
-}
+	}
+	
+	@Override 
+	public int hashCode()
+	{
+		return Objects.hashCode(this.lastName, this.firstName, this.email, this.password);
+	}
 }
