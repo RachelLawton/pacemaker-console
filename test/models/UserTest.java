@@ -11,10 +11,17 @@ import org.junit.Test;
 
 public class UserTest
 {
-  User homer = new User ("homer", "simpson", "homer@simpson.com",  "secret");
+	
+	private  User[]users =
+	{
+	 new User ("marge", "simpson", "marge@simpson.com",  "secret"),
+	 new User ("lisa",  "simpson", "lisa@simpson.com",   "secret"),
+	 new User ("bart",  "simpson", "bart@simpson.com",   "secret"),
+	 new User ("maggie","simpson", "maggie@simpson.com", "secret")
+	};
+	User homer = new User ("homer", "simpson", "homer@simpson.com",  "secret");
   
   
-  private Map<String, User> users = new HashMap<String, User>();
   
   @Test
   public void testCreate()
@@ -29,16 +36,16 @@ public class UserTest
   public void testIds()
   {
     Set<Long> ids = new HashSet<>();
-    for (User user : users.values())
+    for (User user : users)
     {
       ids.add(user.id);
     }
-    assertEquals (users.size(), ids.size());
+    assertEquals (users.length, ids.size());
   }
 
  @Test
   public void testToString()
   {
-	  assertEquals ("User{" + homer.id + ", homer, simpson, secret, homer@simpson.com}", homer.toString());
+	  assertEquals ("User{"/* + homer.id */+ "homer, simpson, secret, homer@simpson.com}", homer.toString());
   }
 }
