@@ -19,9 +19,7 @@ public class UserTest
 	 new User ("bart",  "simpson", "bart@simpson.com",   "secret"),
 	 new User ("maggie","simpson", "maggie@simpson.com", "secret")
 	};
-	User homer = new User ("homer", "simpson", "homer@simpson.com",  "secret");
-  
-  
+	User homer = new User ("homer", "simpson", "homer@simpson.com",  "secret"); 
   
   @Test
   public void testCreate()
